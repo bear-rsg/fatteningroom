@@ -17,18 +17,31 @@ SECRET_KEY = ''
 DEBUG = True/False
 
 # Set to ['*'] if in development, or specific IP addresses and domains if in production
-ALLOWED_HOSTS = ['*']/['django-template.bham.ac.uk']
+ALLOWED_HOSTS = ['*']/['fatteningroom.bham.ac.uk']
 
 # Provide the email address for the site admin (e.g. the researcher/research team)
-ADMIN_EMAIL = '...@bham.ac.uk'
+MAIN_CONTACT_EMAIL = '...@bham.ac.uk'
 
 # Set the database name below
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'django-template.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'fatteningroom.sqlite3'),
         'TEST': {
-            'NAME': os.path.join(BASE_DIR, 'django-template_TEST.sqlite3'),
+            'NAME': os.path.join(BASE_DIR, 'fatteningroom_TEST.sqlite3'),
         },
     }
 }
+
+# Email
+DEFAULT_FROM_EMAIL = 'anemailaddress@bham.ac.uk'
+NOTIFICATION_EMAIL = 'anemailaddress@bham.ac.uk'
+if DEBUG is True:
+    EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+    EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
+else:
+    EMAIL_USE_TLS = False
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = 'hostnamehere'
+    EMAIL_PORT = 25
+    EMAIL_HOST_USER = 'anemailaddress@bham.ac.uk'

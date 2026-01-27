@@ -1,0 +1,486 @@
+
+/* ---------- General ---------- */
+
+html, body {
+    font-family: 'Inter', 'Helvetica', sans-serif;
+    background: black;
+    color: white;
+    margin: 0;
+    font-weight: 300;
+
+    /* Variables */
+    --color-primary: #FEA482;
+    --color-primary-dark: #bc765d;
+    --color-primary-light: #fdf2ec;
+    --color-red: #B40107;
+    --color-green: #27ae60;
+    --color-purple: #8e44ad;
+}
+
+.display-small,
+.display-large {
+    display: none;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: var(--color-primary-dark);
+    text-decoration: none;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.3rem;
+}
+
+h2 {
+    font-size: 1.7em;
+    margin: 1em 0 1.3em 0;
+    line-height: 1em;
+    font-weight: 600;
+    text-align: center;
+    color: var(--color-primary);
+}
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1em;
+    font-weight: 600;
+    margin: 3em 0 0.5em 0;
+    padding: 0.1em 0;
+    width: fit-content;
+    color: var(--color-primary);
+}
+
+h4 {
+    font-weight: 600;
+    line-height: 1em;
+    font-size: 1.4em;
+    margin: 1em 0 0.5em 0;
+    padding: 0.1em 0;
+    width: fit-content;
+}
+
+section {
+    padding: 2.7em 0;
+}
+
+p {
+    margin: 1em auto;
+    line-height: 1.3em;
+}
+
+strong {
+    font-weight: 600;
+}
+
+em {
+    font-style: italic;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td,
+th {
+    border: 1px solid var(--color-primary-dark);
+    padding: 0.3em;
+}
+
+th {
+    font-weight: bold;
+    text-align: center;
+}
+
+.clearfloat {
+    clear: both;
+}
+
+.image-circle {
+    border-radius: 100%;
+    width: 13em;
+    max-width: 90%;
+    display: block;
+    margin: 1em auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.rtl {
+    text-align: right;
+}
+
+/* ---------- Navigation ---------- */
+
+nav {
+    background: black;
+    vertical-align: middle;
+    color: white;
+}
+
+.navbar {
+    padding: 0 0.5em;
+}
+
+.navbar-brand {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 1.6em;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    color: var(--color-primary);
+}
+
+.navbar-brand img {
+    height: 3em;
+}
+
+.navbar-nav {
+    letter-spacing: 0.05em;
+}
+
+.nav-link {
+    font-weight: 300;
+    font-size: 1.13em;
+}
+
+.nav-link.active {
+    font-weight: 600;
+}
+
+nav a:hover {
+    opacity: 0.95;
+}
+
+nav hr {
+    margin: 0.5em 0;
+}
+
+/* ---------- Main ---------- */
+
+main {
+    font-size: 1.1em;
+}
+
+main a {
+    text-decoration: none;
+}
+
+/* ---------- Welcome ---------- */
+
+#welcome-banner {
+    width: 100%;
+    margin-top: 7em;
+    background-image: url('../images/welcome/welcome-banner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    background-color: black;
+}
+
+#welcome-footer {
+    font-size: 0.95em;
+    padding: 5em 0;
+    text-align: center;
+}
+
+#welcome-footer-content-text {
+    margin-top: 2em;
+}
+
+#welcome-footer-content img {
+    height: 4.5em;
+    margin: 0 1em 1em 1em;
+    display: inline-block;
+}
+
+/* ---------- About ---------- */
+
+#about-img-whatwillprojectdo {
+    width: 100%;
+    margin: 4em auto;
+}
+
+/* ---------- Team ---------- */
+
+.team-member-name {
+    margin-top: 5em;
+    color: var(--color-primary);
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.team-member-role {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 1em;
+}
+
+.team-member-photo {
+    display: block;
+    margin: 1em auto;
+    width: 13em;
+    border-radius: 100%;
+    border: 0.4rem solid var(--color-primary);
+}
+
+/* ---------- News: List ---------- */
+
+#news-list-header {
+    margin-bottom: 3em;
+    user-select: none;
+}
+
+#news-list-header-form-search-input {
+    width: calc(100% - 3.5em);
+    padding: 0.5em 0.8em;
+    margin-right: 0.5em;
+    border-radius: 0.3em;
+    border: none;
+    opacity: 0.9;
+}
+
+#news-list-header-form-search-input:focus {
+    opacity: 1;
+    outline: none;
+}
+
+#news-list-header-form-search-button {
+    border: none;
+    background: var(--color-primary);
+    color: black;
+    border-radius: 100%;
+    width: 30pt;
+    height: 30pt;
+}
+
+#news-list-articles {
+    text-align: center;
+    user-select: none;
+}
+
+.news-list-articles-article {
+    display: inline-block;
+    width: 18em;
+    background: var(--color-primary);
+    color: black;
+    border-radius: 1em;
+    overflow: hidden;
+    margin: 1em;
+}
+
+.news-list-articles-article:hover {
+    text-decoration: none;
+    outline: 0.4em solid var(--color-primary);
+    color: black;
+}
+
+.news-list-articles-article-image {
+    width: 100%;
+    height: 13em;
+    /* background-image: is set in template, as uses URL from db */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.news-list-articles-article-image-notpublished {
+    background: var(--color-red);
+    color: white;
+    font-size: 0.9em;
+    padding: 0.2em;
+}
+
+.news-list-articles-article-text {
+    padding: 0.5em;
+    font-weight: 300;
+}
+
+.news-list-articles-article-text-title {
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    height: 2.5em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.news-list-articles-article-text-date {
+    font-size: 0.8em;
+}
+
+#news-list-articles-empty {
+    margin-top: 15vh;
+}
+
+#news-list-articles-empty strong {
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 1em;
+}
+
+/* ---------- News: Detail ---------- */
+
+#news-detail-notpublished {
+    background: var(--color-red);
+    color: white;
+    padding: 0.4em 2em;
+    margin: 0 auto 2em auto;
+    font-weight: bold;
+    font-size: 0.9em;
+    text-align: center;
+    width: fit-content;
+}
+
+#news-detail-image {
+    width: fit-content;
+    display: block;
+    margin: 2em auto 4em auto;
+}
+
+#news-detail-image img {
+    max-height: 25em;
+    max-width: 100%;
+}
+
+#news-detail-date {
+    text-align: center;
+}
+
+/* ---------- Art Objects: List ---------- */
+
+#artobject-list-items {
+    margin-top: 4em;
+    text-align: center;
+}
+
+.artobject-list-items-item {
+    display: inline-block;
+    width: 22rem;
+    height: 27rem;
+    border: 0.2em solid #AAA;
+    vertical-align: top;
+    margin: 0.7em 0.4em;
+    background-size: cover;
+    background-position: center;
+    background-color: #101010;
+    border-radius: 0.6em;
+    overflow: hidden;
+    position: relative;
+    text-align: left;
+}
+
+.artobject-list-items-item:hover {
+    text-decoration: none;
+    border: 0.2em solid var(--color-primary);
+}
+
+/* ---------- Art Objects: Detail ---------- */
+
+#artobject-detail-image {
+    width: 100%;
+    display: block;
+    margin-bottom: 2em;
+}
+
+#artobject-detail-data {
+    padding: 1em;
+    margin-bottom: 2em;
+}
+
+.artobject-detail-data-item {
+    padding: 0.7em 0;
+    border-top: 1px solid #474747;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.artobject-detail-data-item:last-of-type {
+    border-bottom: 1px solid #474747;
+}
+
+.artobject-detail-data-item label {
+    color: var(--color-primary);
+    min-width: 5em;
+    display: block;
+    margin-bottom: 0.3em;
+}
+
+.artobject-detail-data-item span {
+    line-height: 1.3em;
+    display: block;
+}
+
+#artobject-detail-interactive iframe {
+    width: 100%;
+    height: 40em;
+
+}
+
+/* ---------- Questionnaire ---------- */
+
+#questionnaire-create-form label {
+    font-weight: bold;
+    display: block;
+    margin: 2em 0 0.4em 0;
+    color: var(--color-primary);
+}
+
+#questionnaire-create-form label a {
+    text-decoration: underline;
+}
+
+#questionnaire-create-submit {
+    background: var(--color-primary);
+    color: black;
+    outline: none;
+    border: 0;
+    font-weight: bold;
+    margin: 4em auto;
+    width: 25em;
+    max-width: 100%;
+    padding: 0.5em;
+    font-size: 1.1em;
+    display: block;
+}
+
+#questionnaire-create-submit:hover {
+    opacity: 0.9;
+}
+
+/* ---------- Error Pages ---------- */
+
+.errorpage-path {
+    font-weight: 500;
+}
+
+.errorpage-code {
+    margin-top: 3em;
+    font-size: 0.8em;
+}

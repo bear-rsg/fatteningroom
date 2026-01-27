@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+
+<section id="questionnaire-create" class="container">
+
+    <h2>Share</h2>
+    <p>
+        Do you want to join the conversation? Maybe you know something about fattening rooms or Cross Riverian cultural practices, or perhaps this project has made you reflect on girls’ coming of age journeys and/or maternal care practices in other cultures/parts of the world. If you think you have something to contribute to the project, we would love to hear from you.
+    </p>
+    <p>
+        If you have been directed to this page via a QR code at one of the project’s exhibitions, you can use the form below to share your feedback on the exhibition and/or project.
+    </p>
+    <p>
+        You are welcome to share written statements, photographs, images or sound recordings.
+    </p>
+
+    <form id="questionnaire-create-form" enctype="multipart/form-data" name="form" method="POST" action="{% url 'researchdata:questionnaire-create' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <!-- Must check this box before submitting -->
+        <p>
+            <label for="id_pis">By submitting my feedback, I declare that I have read and understood the <a href="{% static 'documents/questionnaire/Participant Information & Consent for Website - BFR Project.pdf' %}" target="_blank">Participant Information Sheet</a>:</label>
+            <input type="checkbox" name="pis" id="id_pis" required="required">
+        </p>
+        <!-- Submit button -->
+        <button class="btn btn-primary" id="questionnaire-create-submit" type="submit">
+            <i class="fa-solid fa-check"></i> Send Feedback
+        </button>
+    </form>
+
+</section>
+
+{% endblock %}

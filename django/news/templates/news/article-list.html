@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static settings_value %}
+
+{% block main %}
+
+<section id="news-list" class="container">
+    <h2>News</h2>
+
+    <div id="news-list-header">
+        <form method="GET" action="" id="news-list-header-form">
+            <div id="news-list-header-form-search">
+                <input type="text" name="search" title="Search" id="news-list-header-form-search-input" placeholder="Search" autocomplete="off">
+                <button type="submit" value="Search" title="Search" id="news-list-header-form-search-button"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+    </div>
+
+    <div id="news-list-articles">
+        {% for article in object_list %}
+            <a href="{{ article.get_absolute_url }}" class="news-list-articles-article">
+                <div class="news-list-articles-article-image" style="background-image: url({{ article.image.url }});">
+                    {% if not article.admin_published %}<div class="news-list-articles-article-image-notpublished">Not Published</div>{% endif %}
+                </div>
+                <div class="news-list-articles-article-text">
+                    <div class="news-list-articles-article-text-title">
+                        {{ article.title_preview }}
+                    </div>
+                    <div class="news-list-articles-article-text-date">
+                        {{ article.public_date |date:"j F Y" }}
+                    </div>
+                </div>
+            </a>
+        {% empty %}
+            <div id="news-list-articles-empty">
+                <strong>No news articles found</strong>
+                Please try adjusting your search or check back soon
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

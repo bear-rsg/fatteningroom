@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<section id="artobject-list" class="container">
+    <h2>Interact</h2>
+    <p>
+        Click on the thumbnails below to take a closer look at the art objects and interact with them in 3D. <br>
+        To read more about the art objects <a href="{% url 'general:about' %}#about-whatareprojectsartobjects">click here</a>
+    </p>
+    <div id="artobject-list-items">
+        {% for art_object in object_list %}
+            <a class="artobject-list-items-item" href="{% url 'researchdata:artobjects-detail' pk=art_object.id %}" style="background-image: url({{ art_object.image.url }});">
+            </a>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

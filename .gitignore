@@ -7,7 +7,6 @@ private/
 django/media/
 django/static/
 node_modules/
-accessibility_reports/
 
 
 ###################### Django Templated gitignore paths  ######################

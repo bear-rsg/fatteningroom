@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static settings_value %}
+
+{% block main %}
+
+    <div id="welcome-banner"></div>
+
+    <section class="container">
+        <h2>Welcome</h2>
+        <p>
+            <em>Beyond the Fattening Room</em> puts art objects and lived experiences in dialogue with each other to identify pathways to improving women’s health and wellbeing in Nigeria, and to test best practice for African art collections in the UK.
+        </p>
+        <p>
+            Running for four years (2025-2029), the project’s activities in the UK and Nigeria bring together academic research, collection management, and the public to generate novel discussion and co-produce new forms of knowledge on two pressing social concerns. This website is also designed to facilitate conversation: click on the toolbar to learn more about the project, interact with its artworks and public exhibitions, and find out how to participate.
+        </p>
+            Beyond the Fattening Room project is led by Dr Juliet Gilbert at the University of Birmingham and is in collaboration with the University Collections team at the University of Birmingham and a Nigeria-based women’s health rights advocate. The project is generously funded by the Arts and Humanities Research Council (AHRC).
+        </p>
+    </section>
+
+    <section id="welcome-footer">
+        <!-- Content -->
+        <div id="welcome-footer-content" class="container">
+
+            <div id="welcome-footer-content-logos">
+                <a href="https://www.birmingham.ac.uk/" target="_blank"><img src="{% static 'images/logos/logo-uob.png' %}" alt="Birmingham University logo"></a>
+            </div>
+
+            <div id="welcome-footer-content-text">
+                <p>
+                    This website has been developed for the <em>Beyond the Fattening Room</em> research project
+                    <br>
+                    led by <a href="https://www.birmingham.ac.uk/staff/profiles/dasa/gilbert-juliet" target="_blank">Dr Juliet Gilbert</a> of the <a href="https://www.birmingham.ac.uk/about/college-of-arts-and-law" target="_blank">College of Arts and Law</a> at the <a href="https://www.birmingham.ac.uk/" target="_blank">University of Birmingham</a>
+                </p>
+                <p>
+                    Contact: <a href="mailto:{% settings_value 'MAIN_CONTACT_EMAIL' %}">{% settings_value 'MAIN_CONTACT_EMAIL' %}</a>
+                </p>
+                <p>
+                    <a href="https://www.birmingham.ac.uk/privacy/index.aspx" target="_blank">Privacy</a> |
+                    <a href="https://www.birmingham.ac.uk/legal/index.aspx" target="_blank">Legal</a> |
+                    <a href="https://www.birmingham.ac.uk/university/governance/policies-regs/information/index.aspx" target="_blank">Freedom of Information</a> |
+                    <a href="{% url 'general:cookies' %}">Cookies</a> |
+                    <a href="https://accessibility.bear.bham.ac.uk/" target="_blank">Accessibility</a>
+                </p>
+                <p>
+                    © University of Birmingham {% now "Y" %}
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

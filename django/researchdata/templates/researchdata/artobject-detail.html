@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<section id="artobject-detail" class="container">
+    <img id="artobject-detail-image" src="{{ object.image.url }}" alt="Image of object #{{ object.id  }}">
+    <div id="artobject-detail-data">
+        {% for object_data_item in object_data %}
+            {% if object_data_item.data %}
+                <div class="artobject-detail-data-item">
+                    <label>{{ object_data_item.label }}</label>
+                    <span>{{ object_data_item.data | linebreaksbr }}</span>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div id="artobject-detail-interactive">
+        {{ object.interactive_object_embed_code | safe }}
+    </div>
+</section>
+
+{% endblock %}

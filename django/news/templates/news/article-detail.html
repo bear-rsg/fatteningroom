@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static settings_value %}
+
+{% block main %}
+
+<section id="news-detail" class="container">
+    {% if not article.admin_published %}<div id="news-detail-notpublished">This article is not publicly visible as it is not yet published</div>{% endif %}
+    <h2>{{ object.title }}</h2>
+    <div id="news-detail-date">{{ article.public_date |date:"j F Y" }}</div>
+    <a id="news-detail-image" href="{{ article.image.url }}"><img src="{{ article.image.url }}" alt="{{ object.title }}"></a>
+    <div id="news-detail-content">{{ object.content | safe }}</div>
+</div>
+
+{% endblock %}
