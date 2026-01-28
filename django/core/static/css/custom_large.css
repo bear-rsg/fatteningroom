@@ -30,6 +30,7 @@
 
     #welcome-banner {
         height: calc(70vh - 3em);
+        min-height: 25em;
     }
 
     /* ---------- Art Objects: Detail ---------- */

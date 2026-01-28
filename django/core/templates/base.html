@@ -77,10 +77,12 @@
                     <li class="nav-item">
                         <a class="nav-link{% if "/interact/" in request.path %} active{% endif %}" href="{% url 'researchdata:artobjects-list' %}">Interact</a>
                     </li>
-                    <!-- Share -->
-                    <li class="nav-item">
-                        <a class="nav-link{% if "/share/" in request.path %} active{% endif %}" href="{% url 'researchdata:questionnaire-create' %}">Share</a>
-                    </li>
+                    {% comment %} THIS IS BEING TEMPORARILY HIDDEN UNTIL JULIET GIVES APPROVAL THAT SHE WANTS IT INCLUDED, BUT IS FULLY BUILT AND READY TO GO, JUST UNCOMMENT THIS LINK
+                        <!-- Share -->
+                        <li class="nav-item">
+                            <a class="nav-link{% if "/share/" in request.path %} active{% endif %}" href="{% url 'researchdata:questionnaire-create' %}">Share</a>
+                        </li>
+                    {% endcomment %}
                     {% if user.is_staff %}
                         <!-- Admin Dashboard -->
                         <li class="nav-item">
