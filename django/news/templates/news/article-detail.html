@@ -9,6 +9,7 @@
     <div id="news-detail-date">{{ article.public_date |date:"j F Y" }}</div>
     <a id="news-detail-image" href="{{ article.image.url }}"><img src="{{ article.image.url }}" alt="{{ object.title }}"></a>
     <div id="news-detail-content">{{ object.content | safe }}</div>
+    <div id="news-detail-videos">{{ object.videos | safe }}</div>
 </div>
 
 {% endblock %}

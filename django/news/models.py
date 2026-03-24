@@ -14,6 +14,10 @@ class Article(models.Model):
     title = models.CharField(max_length=1000, unique=True)
     image = models.ImageField(upload_to='news-articleimages')
     content = RichTextUploadingField()
+    videos = models.TextField(
+        blank=True, null=True,
+        help_text='Paste embed code from YouTube. Include multiple videos on new lines.'
+    )
 
     # Admin
     admin_published = models.BooleanField(default=False, verbose_name='published', help_text='Only published articles will appear on the public interface')
