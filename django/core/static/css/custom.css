@@ -373,6 +373,16 @@ main a {
     text-align: center;
 }
 
+#news-detail-videos {
+    text-align: center;
+    margin-top: 3em;
+}
+
+#news-detail-videos iframe {
+    max-width: 100%;
+    margin-top: 2em;
+}
+
 /* ---------- Art Objects: List ---------- */
 
 #artobject-list-items {
