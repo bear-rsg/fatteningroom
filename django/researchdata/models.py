@@ -73,7 +73,7 @@ class ArtObject(models.Model):
 
     def __str__(self):
         return f'Art Object #{self.id}'
-    
+
 
 class ExploreItem(models.Model):
     """
