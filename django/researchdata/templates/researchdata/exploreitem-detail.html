@@ -4,7 +4,9 @@
 
 <section id="exploreitem-detail" class="container">
     <h2>{{ object.title }}</h2>
-    <div id="exploreitem-detail-summary">{{ object.summary }}</div>
+    {% if object.summary %}
+        <div id="exploreitem-detail-summary">{{ object.summary }}</div>
+    {% endif %}
     {% if object.image %}
         <img id="exploreitem-detail-image" src="{{ object.image.url }}" alt="Image of {{ object  }}">
     {% endif %}
@@ -14,10 +16,12 @@
             Your browser does not support the audio element.
         </audio>
     {% endif %}
-    <div id="exploreitem-detail-transcription">
-        <div id="exploreitem-detail-transcription-title">Transcription of audio:</div>
-        <div id="exploreitem-detail-transcription-content">{{ object.transcription | linebreaks }}</div>
-    </div>
+    {% if object.transcription %}
+        <div id="exploreitem-detail-transcription">
+            <div id="exploreitem-detail-transcription-title">Transcription of audio:</div>
+            <div id="exploreitem-detail-transcription-content">{{ object.transcription | linebreaks }}</div>
+        </div>
+    {% endif %}
 </section>
 
 {% endblock %}
