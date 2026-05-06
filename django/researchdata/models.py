@@ -75,6 +75,30 @@ class ArtObject(models.Model):
         return f'Art Object #{self.id}'
 
 
+class ExploreItem(models.Model):
+    """
+    An item that appears on the Explore page
+    """
+
+    related_name = 'explore_items'
+
+    title = models.CharField(max_length=255)
+    summary = models.TextField(blank=True, null=True)
+    audio = models.FileField(upload_to='explore/audio', blank=True, null=True)
+    transcription = models.TextField(blank=True, null=True)
+    image = models.ImageField(upload_to='explore/images', blank=True, null=True)
+    published = models.BooleanField(default=False, help_text='Only published Explore Items will appear on the public web interface')
+    admin_notes = models.TextField(blank=True, null=True, help_text='Optional. Used for internal notes. Only visible on this page and will not appear on public website.')
+    created = models.DateTimeField(auto_now_add=True)
+    lastupdated = models.DateTimeField(auto_now=True)
+
+    def get_absolute_url(self):
+        return reverse('researchdata:exploreitems-detail', args=[str(self.id)])
+
+    def __str__(self):
+        return f'Explore Item #{self.id}'
+
+
 class Questionnaire(models.Model):
     """
     A Questionnaire completed by a user via the website's Share section

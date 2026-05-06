@@ -111,6 +111,34 @@ class ArtObjectAdminView(GenericAdminView):
     )
 
 
+@admin.register(models.ExploreItem)
+class ExploreItemAdminView(GenericAdminView):
+    """
+    Customise the admin interface for ExploreItem model
+    """
+
+    list_display_links = ('id',)
+    list_display = (
+        'id',
+        'title',
+        'summary',
+        'audio',
+        'image',
+        'published',
+        'created',
+        'lastupdated'
+    )
+    search_fields = (
+        'title',
+        'summary',
+        'transcription',
+    )
+    readonly_fields = (
+        'created',
+        'lastupdated',
+    )
+
+
 @admin.register(models.Questionnaire)
 class QuestionnaireAdminView(admin.ModelAdmin):
     list_display = ('id', 'story_text', 'story_file', 'email', 'created', 'lastupdated')
