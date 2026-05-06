@@ -25,9 +25,6 @@ class ArtObjectDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
-        # Queryset only includes root objects (those with no parent_text_part)
-        # as recursive code in the template will loop through descendents
         context['object_data'] = [
             {'label': 'Reference', 'data': self.object.reference},
             {'label': 'Description', 'data': self.object.description},
@@ -37,8 +34,23 @@ class ArtObjectDetailView(DetailView):
             {'label': 'Material', 'data': self.object.material},
             {'label': 'Collection', 'data': self.object.collection},
         ]
-
         return context
+
+
+class ExploreItemListView(ListView):
+    """
+    Class-based view to show the ExploreItem list template
+    """
+    template_name = 'researchdata/exploreitem-list.html'
+    queryset = models.ExploreItem.objects.filter(published=True)
+
+
+class ExploreItemDetailView(DetailView):
+    """
+    Class-based view to show the ExploreItem detail template
+    """
+    template_name = 'researchdata/exploreitem-detail.html'
+    queryset = models.ExploreItem.objects.filter(published=True)
 
 
 class QuestionnaireCreateView(CreateView):

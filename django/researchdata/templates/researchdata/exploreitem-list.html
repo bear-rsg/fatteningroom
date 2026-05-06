@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<section id="exploreitem-list" class="container">
+    <h2>Explore</h2>
+    <p>
+        Click on the thumbnails below to explore parts of the <em>Embodied Care: Beyond the Fattening Room</em> display.
+    </p>
+    <div id="exploreitem-list-items">
+        {% for explore_item in object_list %}
+            <a class="exploreitem-list-items-item" href="{% url 'researchdata:exploreitems-detail' pk=explore_item.id %}"{% if explore_item.image %}style="background-image: url({{ explore_item.image.url }});"{% endif %}>
+                <span class="exploreitem-list-items-item-title">{{ explore_item.title }}</span>
+            </a>
+        {% endfor %}
+    </div>
+    <div>
+        <h3>About the display</h3>
+        <p>
+            <em>Embodied Care</em> explores the figure of the ‘fattening room’ maiden, a symbol of feminine beauty and fertility in south-eastern Nigeria, to invite reflection on the often concealed and culturally informed regimes of care that shape gendered bodies and lived experiences. 
+        </p>
+        <p>
+            Centring on a wooden carving from the University of Birmingham’s African Collection, Embodied Care highlights the tensions between the visible, aesthetic bodily form and the unseen, esoteric practices of its crafting. The display considers how ‘coming of age’ experiences are shaped by generational expectations, gendered labour, and long-term bodily and social practices, opening conversation on broader themes of women’s health and wellbeing today.  
+        </p>
+        <p>
+            <em>Embodied Care</em> is presented in dialogue with <a href="https://www.ikon-gallery.org/exhibition/ikon-creative-health-at-the-library-of-birmingham" target="_blank">What are the odds? Ikon Creative Health</a> at Birmingham Central Library, May-June 2026.
+        </p>
+    </div>
+</section>
+
+{% endblock %}

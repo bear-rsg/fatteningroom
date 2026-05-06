@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<section id="exploreitem-detail" class="container">
+    <h2>{{ object.title }}</h2>
+    <div id="exploreitem-detail-summary">{{ object.summary }}</div>
+    <img id="exploreitem-detail-image" src="{{ object.image.url }}" alt="Image of {{ object  }}">
+    <audio id="exploreitem-detail-audio" controls>
+        <source src="{{ object.audio.url }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div id="exploreitem-detail-transcription">
+        <div id="exploreitem-detail-transcription-title">Transcription of audio:</div>
+        <div id="exploreitem-detail-transcription-content">{{ object.transcription | linebreaks }}</div>
+    </div>
+</section>
+
+{% endblock %}
